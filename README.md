@@ -1,5 +1,5 @@
 # tugas-web-lanjut-pert-1
 Muhammad Dzaki Arrahman
 2017051073
-B - Web Lanjut
-Note* Code Igniter 3
+B - Web Lanjut    
+Note*CodeIgniter 3
