@@ -1,4 +1,4 @@
-# tugas-web-lanjut-pert-1
+# tugas-web-lanjut-pert-2
 Muhammad Dzaki Arrahman
 2017051073
 B - Web Lanjut    
