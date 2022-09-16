@@ -2,17 +2,15 @@
 
 namespace App\Controllers;
 
+use App\Controllers\BaseController;
+use App\Models\Mahasiswa;
+
 class Pages extends BaseController
 {
 
 	public function index()
 	{
 		return view('welcome_message');
-	}
-
-	public function coba()
-	{
-		echo "Ini method coba controllers pages";
 	}
 
     public function view($page = 'home')
@@ -28,6 +26,7 @@ class Pages extends BaseController
             . view('pages/' . $page)
             . view('templates/footer');
     }
+
 
 }
 
