@@ -16,9 +16,8 @@ class Mhscontroller extends BaseController
             'mahasiswa' => $mahasiswa
         ];
 
-        return view('templates/header', $data)
-            . view('pages/mahasiswa', $data)
-            . view('templates/footer');
+        return view('pages/mahasiswa', $data);
+            
     }
 
     public function create()
@@ -27,16 +26,16 @@ class Mhscontroller extends BaseController
             'title' => 'Create Mahasiswa'
         ];
 
-        return view('templates/header', $data)
-            . view('pages/create')
-            . view('templates/footer');
+        return view('pages/create', $data);
+            
     }
 
    public function store(){
     if(!$this->validate([
         'npm' => 'required',
         'nama' => 'required',
-        'alamat' =>'required'
+        'alamat' =>'required',
+        'deskripsi' => 'required'
     ])) {
         return redirect()->to('/create');
     }
@@ -44,7 +43,8 @@ class Mhscontroller extends BaseController
         $data = [
             'npm' => $this->request->getPost('npm'),
             'nama' => $this->request->getPost('nama'),
-            'alamat' => $this->request->getPost('alamat')
+            'alamat' => $this->request->getPost('alamat'),
+            'deksripsi' => $this->request->getPost('deskripsi')
         ];
 
         $mahasiswaModel->save($data);
@@ -64,19 +64,20 @@ class Mhscontroller extends BaseController
         $mahasiswa = $mahasiswaModel->find($id);
 
         $data = [
-            'title' => 'Edit Mahasiswa'
+            'title' => 'Edit Mahasiswa',
+            'mahasiswa' => $mahasiswa
         ];
 
-        return view('templates/header', $data)
-            . view('pages/edit', $mahasiswa)
-            . view('templates/footer');
+        return view('pages/edit', $data);
+            
     }
 
     public function update($id){
         if(!$this->validate([
         'npm' => 'required',
         'nama' => 'required',
-        'alamat' =>'required'
+        'alamat' =>'required',
+        'deskripsi' => 'required'
     ])) {
         return redirect()->to('/edit/'.$id);
     }
@@ -84,7 +85,8 @@ class Mhscontroller extends BaseController
         $data = [
             'npm' => $this->request->getVar('npm'),
             'nama' => $this->request->getVar('nama'),
-            'alamat' => $this->request->getVar('alamat')
+            'alamat' => $this->request->getVar('alamat'),
+            'deksripsi' => $this->request->getPost('deskripsi')
         ];
 
         $mahasiswaModel->update($id, $data);
