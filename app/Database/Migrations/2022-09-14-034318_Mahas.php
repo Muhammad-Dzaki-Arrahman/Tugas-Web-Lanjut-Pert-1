@@ -34,6 +34,9 @@ class Mahas extends Migration
                 'type' => 'datetime',
                 'null' => true,
             ],
+            'deskripsi' => [
+                'type' => 'TEXT',
+            ],
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('mhs');
